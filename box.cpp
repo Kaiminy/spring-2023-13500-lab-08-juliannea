@@ -150,40 +150,26 @@ void scale(std::string filename, int img[MAX_H][MAX_W])
 
 //task f
 
-void pixel(std::string filename) {
-   
-    int img[MAX_H][MAX_W];
-    int p[MAX_H][MAX_W];
-    
+void pixel(std::string filename, int img[MAX_H][MAX_W])
+{
+  int h, w;
+  int p[MAX_H][MAX_W];
+  int average;
+  readImage(filename, img, h, w);
 
-    int h, w; // height and width respectively
-
-    readImage(filename, img,h,w); 
-
-    
-
-    int average; 
-
-    for(int i=0;i<h - (h%2);i+=2)
-    { 
-       
-        for (int j = 0; j<w - (w%2); j+=2)
-        {
-            
-            average = (img[i][j] + img[i+1][j] + img[i][j+1] + img[i+1][j+1]) / 4;
-
-            p[i][j] = average;
-            p[i+1][j] = average;
-            p[i][j+1] = average;
-            p[i+1][j+1] = average;
-
-            
-        }
-    }
-
-    writeImage("taskF.pgm", img, h,w); // wriitng to the image    
-
-    return;
+  //skips by 2
+  for(int row = 0; row < h; row+=2)
+  {
+    for(int col = 0; col < w; col+=2)
+      {
+        average = (img[row][col]+img[row][col+1] + img[row+1][col] + img[row+1][col+1]) / 4; // taking the average of 2x2
+        p[row][col] = average;
+        p[row][col+1] = average;
+        p[row+1][col] = average;
+        p[row+1][col+1] = average;
+      }
+  }
+  writeImage("taskF.pgm", p, h, w);
 }
 
 
