@@ -8,4 +8,4 @@ void frame(std::string );
 
 void scale(std::string , int image[MAX_H][MAX_W]);
 
-void pixel(std::string );
+void pixel(std::string filename, int image[MAX_H][MAX_W]);
