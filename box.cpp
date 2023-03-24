@@ -140,24 +140,23 @@ void scale(std::string filename)
 
     readImage(filename, img,h,w); 
 
-    for(int i=0;i<h;i++) {
-    
-        for (int j = 0; j<w; j++) {
-           
-            
-            zoom[2*i][2*j] = img[i][j];
-            zoom[2*i][2*j + 1] = img[i][j];
-            
-            zoom[2*i+1][2*j] = img[i][j];
-            zoom[2*i+1][2*j + 1] = img[i][j];
-            
-        }
+    for(int row = 0; row < h; row+=2)
+    {
+      for(int col = 0; col < w; col+=2) 
+      {
+        zoom[row][col] = img[row/2][col/2];
+        zoom[row+1][col] = img[row/2][col/2];
+        zoom[row][col+1] = img[row/2][col/2];
+        zoom[row+1][col+1] = img[row/2][col/2];
     }
+  }
 
-    writeImage("taskE.pgm", zoom, h*2,w*2);  
+    writeImage("taskE.pgm", zoom, h,w);  
 
     return;
 }
+
+//task f
 
 void pixel(std::string filename) {
    
