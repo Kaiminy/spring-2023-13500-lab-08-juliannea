@@ -6,6 +6,7 @@
 int main()
 {   
     std::string image1 = "image2.pgm";
+    int img[MAX_H][MAX_W];
     invert_colors(image1);
 
     invert_half(image1);
@@ -14,9 +15,11 @@ int main()
 
     frame(image1);
 
-    scale(image1);
-
     pixel(image1);
+  
+    scale("image2.pgm", img);
+
+    return 0;
 
     
 }
