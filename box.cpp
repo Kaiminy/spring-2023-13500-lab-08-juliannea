@@ -134,11 +134,11 @@ void scale(std::string filename)
 
     int img[MAX_H][MAX_W];
     int zoom[MAX_H][MAX_W];
-    // space may be an issue in the future
+    
 
-    int h, w; // height and width respectively
+    int h, w; 
 
-    readImage(filename, img,h,w); // marhsalling to img_data, h,w
+    readImage(filename, img,h,w); 
 
     for(int i=0;i<h;i++) {
     
@@ -154,7 +154,7 @@ void scale(std::string filename)
         }
     }
 
-    writeImage("taskE.pgm", zoom, h*2,w*2); // wriitng to the image    
+    writeImage("taskE.pgm", zoom, h*2,w*2);  
 
     return;
 }
