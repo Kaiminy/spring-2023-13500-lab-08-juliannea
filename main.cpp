@@ -6,16 +6,22 @@
 int main()
 {   
     std::string image1 = "inImage.pgm";
-    int img[MAX_H][MAX_W];
-    invert_colors(image1);
 
-    invert_half(image1);
+    std::string image2 = "image2.pgm";
+  
+    int img[MAX_H][MAX_W];
+  
+    invert_colors(image2);
+
+    invert_half(image2);
+
+    //testing on different images 
 
     white_box(image1);
 
     frame(image1);
 
-    pixel(image1);
+    pixel(image2, img);
   
     scale(image1, img);
 
