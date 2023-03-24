@@ -129,31 +129,23 @@ void frame(std::string filename)
 }
 
 //Task E 
-void scale(std::string filename)
+void scale(std::string filename, int img[MAX_H][MAX_W])
 {
-
-    int img[MAX_H][MAX_W];
-    int zoom[MAX_H][MAX_W];
-    
-
-    int h, w; 
-
-    readImage(filename, img,h,w); 
-
-    for(int row = 0; row < h; row+=2)
-    {
-      for(int col = 0; col < w; col+=2) 
+  int h, w;
+  int zoom[MAX_H][MAX_W];
+  readImage(filename, img, h, w);
+  
+  for(int row = 0; row < h; row++)
+  {
+    for(int col = 0; col < w; col++)
       {
-        zoom[row][col] = img[row/2][col/2];
-        zoom[row+1][col] = img[row/2][col/2];
-        zoom[row][col+1] = img[row/2][col/2];
-        zoom[row+1][col+1] = img[row/2][col/2];
-    }
+        zoom[row*2][col*2] = img[row][col];
+        zoom[row*2][col*2+1] = img[row][col];
+        zoom[row*2+1][col*2] = img[row][col];
+        zoom[row*2+1][col*2+1] = img[row][col];
+      }
   }
-
-    writeImage("taskE.pgm", zoom, h,w);  
-
-    return;
+  writeImage("taskE.pgm", zoom, 2*h, 2*w);
 }
 
 //task f
