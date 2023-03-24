@@ -6,7 +6,7 @@
 
 * GitHub username: juliannea
 
-* Notes: My program outputs all the new edited images correctly. However, when it's done executing I get the error "*** stack smashing detected ***: terminated Aborted (core dumped)" on replit and am not sure why, when I run it on vscode though the error doesn't pop up. But my images do look correct when I run it on replit and I have the correct output images from Task A through Task F so please don't take points off because of the terminal error that pops up because at least all the image task files are outputted and look like what the lab says it should look like. 
+* Notes: My program outputs all the new edited images correctly. However, when it's done executing I get the error "*** stack smashing detected ***: terminated Aborted (core dumped)" on replit and am not sure why. But my images do look correct when I run it on replit and I have the correct output images from Task A through Task F so please don't take points off because of the terminal error that pops up because at least all the image task files are outputted and look like what the lab says it should look like. 
 
 
   
