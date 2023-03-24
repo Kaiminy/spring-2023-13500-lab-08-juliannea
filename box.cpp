@@ -159,42 +159,41 @@ void scale(std::string filename)
     return;
 }
 
-void pixel(std::string filename) 
-{
-
+void pixel(std::string filename) {
+   
     int img[MAX_H][MAX_W];
-    int zoom[MAX_H][MAX_W];
-    // space may be an issue in the future
+    int p[MAX_H][MAX_W];
+    
 
     int h, w; // height and width respectively
 
-    readImage(filename, img,h,w); // marhsalling to img_data, h,w
+    readImage(filename, img,h,w); 
 
+    
 
-    int avg; // average of each 2x2 pixel cluster
+    int average; 
 
-    for(int i=0;i<h - (h%2);i+=2) { // h%2 is to ensure evenness
-        // interating through each row
-        for (int j = 0; j<w - (w%2); j+=2) {
-            // iterating through each col
+    for(int i=0;i<h - (h%2);i+=2)
+    { 
+       
+        for (int j = 0; j<w - (w%2); j+=2)
+        {
+            
+            average = (img[i][j] + img[i+1][j] + img[i][j+1] + img[i+1][j+1]) / 4;
 
-            //average of the four pixels
-            avg = (zoom[i][j] + zoom[i+1][j] + zoom[i][j+1] + zoom[i+1][j+1]) / 4;
+            p[i][j] = average;
+            p[i+1][j] = average;
+            p[i][j+1] = average;
+            p[i+1][j+1] = average;
 
-            zoom[i][j] = avg;
-            zoom[i+1][j] = avg;
-            zoom[i][j+1] = avg;
-            zoom[i+1][j+1] = avg;
-
-            // updating the cluster ^^
+            
         }
     }
 
-    writeImage("taskF.pgm", zoom, h,w); // wriitng to the image    
+    writeImage("taskF.pgm", img, h,w); // wriitng to the image    
 
     return;
 }
-
 
 
 
