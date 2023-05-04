@@ -3,6 +3,8 @@
 #include "invert.h"
 #include "box.h"
 
+using namespace std;
+
 int main()
 {   
     std::string image1 = "inImage.pgm";
